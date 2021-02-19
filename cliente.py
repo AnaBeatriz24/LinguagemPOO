@@ -1,6 +1,4 @@
-from endereco import *
-
-
+from endereco import*
 class Cliente:
     def __init__(self):
         print("___________________________________________________________")
@@ -11,8 +9,13 @@ class Cliente:
         self._endereco = Endereco()
         print("___________________________________________________________")
 
+    
     def fazerPagamento(self):
+        selecao = """
+        1 - Dinheiro
+        2 - Cartão de Débito
+        3 - Crédito
+        """ 
         print("!!Aceitamos Cartão de Crédito e Débito!!")
-        self._formapaga = input("Dinheiro, Cartão de Débito ou Crédito: ")
+        self._formapaga = int(input(selecao))
         print("___________________________________________________________")
-
