@@ -1,18 +1,8 @@
-class Entregador:
-    
-    def __init__(self):
-        print("___________________________________________________________") 
-        self._nome = ""
-        self._telefone = ""
-        self._veiculo = ""
-        self._placa = ""
-  
-    def mostraDados(self):
-        print('Nome do Entregador:', self._nome)
-        print('Número para contato:', self._telefone)
-        print('Nome do Veículo:', self._veiculo)
-        print('Número da Placa:', self._placa)
-
-    def realizarEntrega(self):
-        print("!!SEU PEDIDO ESTÁ A CAMINHO!!")
-        self.mostraDados()
+nomeEnt = ['Deivid Roberto']
+NumEnt = [69992678932]
+NumPla = ['GTI3409']
+Veiculo = ['Factor 125']
+print('Nome do Entregador:', nomeEnt)
+print('Número para contato:', NumEnt)
+print('Nome do Veículo:', Veiculo)
+print('Número da Placa:', NumPla)
