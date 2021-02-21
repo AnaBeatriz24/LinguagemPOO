@@ -1,4 +1,3 @@
-from endereco import*
 class Cliente:
     def __init__(self):
         print("___________________________________________________________")
