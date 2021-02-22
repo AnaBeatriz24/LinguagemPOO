@@ -19,9 +19,5 @@ cliente.fazerPagamento()
 pedido = Pedido()
 # pedido.confirmaPedido()
 
-dados = Entregador()  #Tentei colocar de uma forma menor, mas não parava de dar erro professora
-dados.nome = "Nome do Entregador: Deivid"
-dados.telefone = "Número para contato: 993382074"
-dados.veiculo = "Veículo: Factor150"
-dados.placa = "Número de Placa: EUP6U97"
-dados.realizarEntrega()
+entregador = Entregador()
+entregador.exibirDados()

@@ -1,5 +1,5 @@
-from acaiTigela import*
-from acaiBatida import*
+import acaiTigela
+import acaiBatida
 #class Pedido:
 
 #    def _init_(self):
@@ -83,14 +83,15 @@ from acaiBatida import*
                 #self.itensEscolhidos.append(self.itensDisponiveis[int#(input(f"Item {i}:"))])
 
 
-    #def confirmaPedido(self):
+    # def confirmaPedido(self):
      #   print(f"Você comprou uma {self.tipo} com {self.itensEscolhidos}")
       #  print("___________________________________________________________")
 
 
 
-class Pedido:
-  def __init__(self):
-    self._acai1 = acaiTigela()
-    self._acai2 = acaiBatida()
-    self.escolha = int(input('Selecione o número do '))
+class Pedido():
+
+    def __init__(self):
+        self._acai1 = acaiTigela()
+        self._acai2 = acaiBatida()
+        self.escolha = int(input('Selecione o número do '))

@@ -5,11 +5,11 @@ class Cliente:
 
         self._nome = input("Digite nome: ")
         try:
-          self._telefone = int(input("Digite número para contato: "))
+            self._telefone = int(input("Digite número para contato: "))
         except NameError:
-          print('Somente números!')
+            print('Somente números!')
         except ValueError:
-          print('Adicione um número válido')
+            print('Adicione um número válido')
         
         self._email = input("Digite seu email: ")
         self._endereco = Endereco()
@@ -17,6 +17,7 @@ class Cliente:
 
     
     def fazerPagamento(self):
+        formas_pag = ["Dinheiro","Cartão de Débito", "Crédito"]
         selecao = """
         1 - Dinheiro
         2 - Cartão de Débito
@@ -24,8 +25,9 @@ class Cliente:
         Digite o número: """ 
         print("!!Aceitamos Cartão de Crédito e Débito!!")
         try:
-          self._formapaga = int(input(selecao))
+            entrada = int(input(selecao))
+            self._formapaga = formas_pag[entrada - 1]
         except:
-          print('Adicione sua forma de pagamento(1, 2 ou 3)')
+            print('Adicione sua forma de pagamento(1, 2 ou 3)')
 
         print("___________________________________________________________")
