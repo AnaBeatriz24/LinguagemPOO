@@ -1,97 +1,113 @@
-import acaiTigela
-import acaiBatida
-#class Pedido:
-
-#    def _init_(self):
-#        self.tipo = input( "" )
-#        self.tamanho = input( "" )
-#        self.itensEscolhidos = []
-#        self.itensDisponiveis = {
-#            1: "Banana",
-#            2: "Maçã",
-#            3: "Morango",
-#            4: "Kiwi",
-#            5: "Uva", 
-#            6:"Leite Condesado",
-#            7: "Granola",
-#            8: "Flocos", 
-#            9: "Leite em pó", 
-#            10: "Farinha Láctea", 
-#            11: "Sucrilhos", 
-#            12: "Mel", 
-#            13: "Creme de Leite", 
-#            14: "Guaraná em pó" }
-#        self.tipoacai()
-#        print("_________________________Cardápio_____________________________")
-#        print("Tigela Pequena= R$10,00(Até 2 itens)")
-#        print("Tigela Média= R$15,00(Até 3 itens)")
-#        print("Tigela Grande= R$20,00(Até 4 itens")
-#        print("Batida= R$10,00(400ml ate 2 itens)")
-
-  
-#    def tipoacai(self):
-#        selecao = """
-#        Escolha como irá querer seu açai:
-#        1 - Tigela (a partir de R$ 10,00)
-#        2 - Batida (R$ 10,00)
-#        \n
-#        """
-
-        # verifica o tipo do pedido
-#        try:
-#            self.tipo = int(input(selecao))
-#        except TypeError:
-#            while (self.tipo not in [1, 2]):
-#                self.tipo = int(input("Insira um valor válido"))
-
-        # se for tigela entra aqui
-#        if (self.tipo == 1):
-#            self.tipo = "tigela de açaí"
-#            selecao = """
-#            Escolha o tamanho da sua tigela:
-#            1 - P => R$ 10,00 com 2 itens
-#            2 - M => R$ 20,00 com até 4 itens
-#            3 - G => R$ 28,00 com ate 6 itens
-#            \n
-#            """
-#            try:
-#                self.tamanho = int(input(selecao))
-#            except TypeError:
-#                while (self.tamanho not in [1, 2, 3]):
-#                    self.tamanho = int(input("Insira um valor válido"))
-            
-#            if self.tamanho == 1:
-#                self.tamanho = "P"
-#                self.preco = "R$ 10,00"
-#            elif self.tamanho == 2:
-#                self.tamanho = "M"
-#                self.preco = "R$ 10,00"
-#            else:
-#                self.tamanho = "G"
-#                self.preco = "R$ 10,00"
-
-
-        # se for batida entra aqui
-        #elif (self.tipo == 2):
-            #self.tipo = "batida de açaí"
-            #self.preco = "R$ 10,00"
-
-            #print("Escolha seus itens (obs: para pedir o mesmo item mais de uma vez basta repetir seu código):")
-#            for i in range(len(self.itensDisponiveis)):
-#                print(f"{i+1} - {self.itensDisponiveis[i+1]}")
-#            for i in range(1, 3):
-                #self.itensEscolhidos.append(self.itensDisponiveis[int#(input(f"Item {i}:"))])
-
-
-    # def confirmaPedido(self):
-     #   print(f"Você comprou uma {self.tipo} com {self.itensEscolhidos}")
-      #  print("___________________________________________________________")
-
-
-
 class Pedido():
-
     def __init__(self):
-        self._acai1 = acaiTigela()
-        self._acai2 = acaiBatida()
-        self.escolha = int(input('Selecione o número do '))
+        self.formapaga = ""
+        self.tipo = ""
+        self.produto = ""
+        self.preco = 0
+        self.itensDisponiveis = {
+            "batida": { 
+                "ricardão": {
+                    "itens": "Açaí, Amendoim, mel, guaraná em pó", 
+                    "preco": 13.00,
+                },
+                "shake": {
+                    "itens": "Açaí, Leite em Pó, Creme de Leite, Leite Condensado",
+                    "preco": 12.00,
+                },
+                "shake com frutas": {
+                    "itens": "Açaí, Leite em Pó, Creme de Leite, Leite Condensado, Banana, Abacaxi, Uva, Mamão, Kiwi",
+                    "preco": 15.00,
+                },
+            },
+            "tigela": {
+                "energy": {
+                    "itens": "Açaí, Banana, Leite em Pó, Creme de Leite, Leite Condensado",
+                    "preco": 16.00,
+                },
+                "ribeirinho": {
+                    "itens": "Açaí , Tapioca",
+                    "preco": 10.00
+                },
+                "mel e granola": {
+                    "itens": "Açaí , Mel , Granola",
+                    "preco": 14.00
+                },
+                "kids": {
+                    "itens": "Açaí, Mm’s, Banana, Granulado, Canudo de Chocolate, Cobertura de Morango",
+                    "preco": 18.00
+                },
+            },
+        }
+  
+    def fazerPedido(self) -> None:
+        print("+----------------------[ OPÇÕES ]----------------------+")
+        opcao = 0
+        while (opcao not in [1, 2]):
+            try:
+                opcao = int(input("""
+                1 - Tigela
+                2 - Batida
+                """))
+            except:
+                opcao = int(input("Insira um valor válido: "))
+
+        if opcao == 1:
+            self.tipo = "tigela"
+        else:
+            self.tipo = "batida"
+
+        aux = self.itensDisponiveis
+
+        itens = [valor for chave, valor in sorted(aux[self.tipo].items())]
+        chaves = [chave for chave, valor in sorted(aux[self.tipo].items())]
+        for j in range(len(itens)):
+            print("+--------------------------+")
+            print((j+1),"-",chaves[j])
+            print("Itens:",itens[j]["itens"])
+            print("Preço: R$",itens[j]["preco"])
+            print("+--------------------------+")
+        codigo = int(input("Insira o código do produto:"))
+        self.produto = chaves[codigo-1]
+        self.preco = itens[codigo-1]["preco"]
+        print("+------------------------------------------------------+")
+        self._fazerPagamento()
+
+    def confirmarPedido(self) -> None:
+        print("\n+----------------------------------------------------------+")
+        print("Você comprou uma {} {} contendo:\n{}\nno valor de {} reais para pagar no {}\n\nDeseja prosseguir (S/N)?".format(
+           self.tipo.title(), 
+           self.produto.title(), 
+           self.itensDisponiveis[self.tipo][self.produto]["itens"],
+           self.preco,
+           self.formapaga
+           )
+        )
+        e_agr = input().upper()
+        while (e_agr not in ["S", "N"]):
+            e_agr = input("Insira um valor válido (S/N): ").upper()
+        
+        if e_agr == "S":
+            print("Certo. Seu pedido será enviado para a entrega")
+        else:
+            print("Lamentamos por desistir do seu pedido :(\nSe houver alguma reclamação, favor guardar para si pois \nainda não temos SAC")
+            exit()
+
+        print("+----------------------------------------------------------+\n")
+
+    def _fazerPagamento(self) -> None:
+        formas_pag = ["Dinheiro","Cartão de Débito", "Crédito"]
+        selecao = """
+        1 - Dinheiro
+        2 - Cartão de Débito
+        3 - Crédito 
+        """ 
+
+        try:
+            entrada = int(input(selecao))
+            self.formapaga = formas_pag[entrada - 1]
+        except:
+            while(self.formapaga not in formas_pag):
+                entrada = int(input("Escolha uma forma de pagamento (1, 2 ou 3): "))
+                self.formapaga = formas_pag[entrada - 1]
+
+        print("+----------------------------------------------------------+\n")

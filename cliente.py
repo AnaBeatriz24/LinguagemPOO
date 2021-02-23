@@ -1,33 +1,29 @@
-from endereco import*
-class Cliente:
-    def __init__(self):
-        print("___________________________________________________________")
+from endereco import *
 
-        self._nome = input("Digite nome: ")
-        try:
-            self._telefone = int(input("Digite número para contato: "))
-        except NameError:
-            print('Somente números!')
-        except ValueError:
-            print('Adicione um número válido')
-        
-        self._email = input("Digite seu email: ")
-        self._endereco = Endereco()
-        print("___________________________________________________________")
+class Cliente():
+    def __init__(self) -> None:
+        print("\n+-------------------------------------------------------------+")
 
-    
-    def fazerPagamento(self):
-        formas_pag = ["Dinheiro","Cartão de Débito", "Crédito"]
-        selecao = """
-        1 - Dinheiro
-        2 - Cartão de Débito
-        3 - Crédito
-        Digite o número: """ 
-        print("!!Aceitamos Cartão de Crédito e Débito!!")
+        self._nome = input("Digite nome seu nome: ")
+        self._nome = self._nome.title()
+        self._email = None
+
         try:
-            entrada = int(input(selecao))
-            self._formapaga = formas_pag[entrada - 1]
+            self._telefone = int(input("Digite número para contato (sem espaços e/ou hífens): "))
         except:
-            print('Adicione sua forma de pagamento(1, 2 ou 3)')
+            print('Somente números!')
+            self._telefone = int(input("Digite número para contato (sem espaços e/ou hífens): "))
+        
+        while self._email == None:
+            email = input("Digite seu email para contato: ")
+            try:
+                # verifica se o formato é válido
+                x = email.split("@")
+                x = email[1].split(".")
+            except:
+                print("Preste atenção ao digitar e insira seu email corretamente!!!")
+            else:
+                self._email = email
 
-        print("___________________________________________________________")
+        self._endereco = Endereco()
+        print("+-------------------------------------------------------------+\n")

@@ -3,21 +3,22 @@
 #Progamação Orientada a Objetos
 
 #@Beatriz
-#1) Pedido: falta preço
-#2) Entregador: falta construtor
-#3) Entregador: arrumar o exibir dados do entregador
+#1) Pedido: falta preço - feito
+#2) Entregador: falta construtor - feito
+#3) Entregador: arrumar o exibir dados do entregador - feito
 
 from cliente import *
 from pedido import *
 from entregador import *
 
-print("_____________AÇAÍ SHOW_____________")
-print("___!!ALERTA!!PERIGOSO SE VICIAR!!___")
-cliente = Cliente()
-cliente.fazerPagamento()
+print("+------------------------[ AÇAÍ SHOW ]------------------------+")
+print("+-------[ ALERTA: ESTE PRODUTO PODE CAUSAR DEPENDECIA ]-------+")
 
-pedido = Pedido()
-# pedido.confirmaPedido()
+cliente = Cliente()
+
+novoPedido = Pedido()
+novoPedido.fazerPedido()
+novoPedido.confirmarPedido()
 
 entregador = Entregador()
 entregador.exibirDados()

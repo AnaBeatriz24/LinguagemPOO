@@ -1,13 +1,15 @@
 
 class Entregador():
     def __init__(self) -> None:
-        self.nomeEnt = ['Deivid Roberto']
-        self.NumEnt = [69992678932]
-        self.NumPla = ['GTI3409']
-        self.Veiculo = ['Factor 125']
+        self.nome = 'Deivid Roberto'
+        self.telefone = 69992678932
+        self.placa = 'GTI3409'
+        self.veiculo = 'Pop 100'
+        self.corVeiculo = "Rosa Shock"
     
     def exibirDados(self) -> None:
-        print('Nome do Entregador:', self.nomeEnt)
-        print('Número para contato:', self.NumEnt)
-        print('Nome do Veículo:', self.Veiculo)
-        print('Número da Placa:', self.NumPla)
+        print('Nome do Entregador:', self.nome)
+        print('Número para contato:', self.telefone)
+        print('Nome do Veículo:', self.veiculo)
+        print('Número da Placa:', self.placa)
+        print('Cor do veículp:', self.corVeiculo)
