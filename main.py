@@ -1,11 +1,8 @@
 #Ana Beatriz de Freitas Teixeira
-#2°Inforática Matutino
+#Klauanny Cordeiro Maia
+#2°Informática Matutino
 #Progamação Orientada a Objetos
 
-#@Beatriz
-#1) Pedido: falta preço - feito
-#2) Entregador: falta construtor - feito
-#3) Entregador: arrumar o exibir dados do entregador - feito
 
 from cliente import *
 from pedido import *
